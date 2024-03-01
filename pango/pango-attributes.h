@@ -511,6 +511,7 @@ PANGO_AVAILABLE_IN_ALL
 PangoAttribute *        pango_attribute_copy                    (const PangoAttribute       *attr);
 PANGO_AVAILABLE_IN_ALL
 void                    pango_attribute_destroy                 (PangoAttribute             *attr);
+void                    pango_attribute_destroy_adapter         (gpointer                    attr);
 PANGO_AVAILABLE_IN_ALL
 gboolean                pango_attribute_equal                   (const PangoAttribute       *attr1,
                                                                  const PangoAttribute       *attr2) G_GNUC_PURE;
@@ -673,6 +674,7 @@ PANGO_AVAILABLE_IN_1_10
 PangoAttrList *         pango_attr_list_ref             (PangoAttrList         *list);
 PANGO_AVAILABLE_IN_ALL
 void                    pango_attr_list_unref           (PangoAttrList         *list);
+void                    pango_attr_list_unref_adapter   (gpointer               list);
 PANGO_AVAILABLE_IN_ALL
 PangoAttrList *         pango_attr_list_copy            (PangoAttrList         *list);
 PANGO_AVAILABLE_IN_ALL
@@ -728,6 +730,7 @@ PANGO_AVAILABLE_IN_ALL
 PangoAttrIterator *     pango_attr_iterator_copy        (PangoAttrIterator     *iterator);
 PANGO_AVAILABLE_IN_ALL
 void                    pango_attr_iterator_destroy     (PangoAttrIterator     *iterator);
+void                    pango_attr_iterator_destroy_adapter (gpointer           iterator);
 PANGO_AVAILABLE_IN_ALL
 PangoAttribute *        pango_attr_iterator_get         (PangoAttrIterator     *iterator,
                                                          PangoAttrType          type);
@@ -739,9 +742,9 @@ void                    pango_attr_iterator_get_font    (PangoAttrIterator     *
 PANGO_AVAILABLE_IN_1_2
 GSList *                pango_attr_iterator_get_attrs   (PangoAttrIterator     *iterator);
 
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoAttribute, pango_attribute_destroy)
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoAttrList, pango_attr_list_unref)
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoAttrIterator, pango_attr_iterator_destroy)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoAttribute, pango_attribute_destroy_adapter)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoAttrList, pango_attr_list_unref_adapter)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoAttrIterator, pango_attr_iterator_destroy_adapter)
 
 G_END_DECLS
 

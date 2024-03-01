@@ -488,6 +488,7 @@ PANGO_AVAILABLE_IN_1_20
 PangoLayoutIter *pango_layout_iter_copy (PangoLayoutIter *iter);
 PANGO_AVAILABLE_IN_ALL
 void             pango_layout_iter_free (PangoLayoutIter *iter);
+void             pango_layout_iter_free_adapter (gpointer iter);
 
 PANGO_AVAILABLE_IN_ALL
 int              pango_layout_iter_get_index  (PangoLayoutIter *iter);
@@ -546,7 +547,7 @@ int  pango_layout_iter_get_run_baseline    (PangoLayoutIter *iter);
 
 
 G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoLayout, g_object_unref)
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoLayoutIter, pango_layout_iter_free)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoLayoutIter, pango_layout_iter_free_adapter)
 
 G_END_DECLS
 

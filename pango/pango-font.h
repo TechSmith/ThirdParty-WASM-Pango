@@ -259,6 +259,7 @@ gboolean              pango_font_description_equal       (const PangoFontDescrip
                                                           const PangoFontDescription  *desc2) G_GNUC_PURE;
 PANGO_AVAILABLE_IN_ALL
 void                  pango_font_description_free        (PangoFontDescription        *desc);
+void                  pango_font_description_free_adapter(gpointer                     desc);
 PANGO_AVAILABLE_IN_ALL
 void                  pango_font_descriptions_free       (PangoFontDescription       **descs,
                                                           int                          n_descs);
@@ -692,7 +693,7 @@ PangoFont *           pango_font_deserialize       (PangoContext     *context,
 G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoFontFamily, g_object_unref)
 G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoFontFace, g_object_unref)
 G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoFont, g_object_unref)
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoFontDescription, pango_font_description_free)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoFontDescription, pango_font_description_free_adapter)
 
 G_END_DECLS
 

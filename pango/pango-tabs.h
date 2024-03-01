@@ -67,6 +67,7 @@ PANGO_AVAILABLE_IN_ALL
 PangoTabArray  *pango_tab_array_copy                (PangoTabArray *src);
 PANGO_AVAILABLE_IN_ALL
 void            pango_tab_array_free                (PangoTabArray *tab_array);
+void            pango_tab_array_free_adapter        (gpointer       tab_array);
 PANGO_AVAILABLE_IN_ALL
 gint            pango_tab_array_get_size            (PangoTabArray *tab_array);
 PANGO_AVAILABLE_IN_ALL
@@ -110,7 +111,7 @@ gunichar        pango_tab_array_get_decimal_point   (PangoTabArray *tab_array,
 PANGO_AVAILABLE_IN_1_50
 void            pango_tab_array_sort                (PangoTabArray *tab_array);
 
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoTabArray, pango_tab_array_free)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(PangoTabArray, pango_tab_array_free_adapter)
 
 G_END_DECLS
 

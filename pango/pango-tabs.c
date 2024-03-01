@@ -209,6 +209,11 @@ pango_tab_array_free (PangoTabArray *tab_array)
 
   g_slice_free (PangoTabArray, tab_array);
 }
+void
+pango_tab_array_free_adapter (gpointer tab_array)
+{
+   pango_tab_array_free ((PangoTabArray*) tab_array);
+}
 
 /**
  * pango_tab_array_get_size:

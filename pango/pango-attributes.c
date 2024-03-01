@@ -162,6 +162,11 @@ pango_attribute_destroy (PangoAttribute *attr)
 
   attr->klass->destroy (attr);
 }
+void
+pango_attribute_destroy_adapter (gpointer attr)
+{
+   pango_attribute_destroy ((PangoAttribute*) attr);
+}
 
 G_DEFINE_BOXED_TYPE (PangoAttribute, pango_attribute,
                      pango_attribute_copy,
@@ -1919,6 +1924,11 @@ pango_attr_list_unref (PangoAttrList *list)
       g_slice_free (PangoAttrList, list);
     }
 }
+void
+pango_attr_list_unref_adapter (gpointer list)
+{
+   pango_attr_list_unref((PangoAttrList*) list);
+}
 
 /**
  * pango_attr_list_copy:
@@ -3333,6 +3343,11 @@ pango_attr_iterator_destroy (PangoAttrIterator *iterator)
 
   _pango_attr_iterator_destroy (iterator);
   g_slice_free (PangoAttrIterator, iterator);
+}
+void
+pango_attr_iterator_destroy_adapter (gpointer iterator)
+{
+   pango_attr_iterator_destroy ((PangoAttrIterator*) iterator);
 }
 
 /**

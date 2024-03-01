@@ -7278,6 +7278,11 @@ pango_layout_iter_free (PangoLayoutIter *iter)
   _pango_layout_iter_destroy (iter);
   g_slice_free (PangoLayoutIter, iter);
 }
+void
+pango_layout_iter_free_adapter (gpointer iter)
+{
+   pango_layout_iter_free ((PangoLayoutIter*) iter);
+}
 
 /**
  * pango_layout_iter_get_index:
