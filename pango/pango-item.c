@@ -116,6 +116,11 @@ pango_item_free (PangoItem *item)
   else
     g_slice_free (PangoItem, item);
 }
+void
+pango_item_free_adapter (gpointer item, gpointer dummy)
+{
+   pango_item_free ((PangoItem*) item);
+}
 
 G_DEFINE_BOXED_TYPE (PangoItem, pango_item,
                      pango_item_copy,
